@@ -1,5 +1,5 @@
 <?php
-$files = glob(__DIR__ . '/{Controller,Model}/*.php', GLOB_BRACE);
+$files = glob(__DIR__ . '/{Interface,Controller,Model}/*.php', GLOB_BRACE);
 if ($files === false) {
     throw new RuntimeException("Failed to glob for function files");
 }
