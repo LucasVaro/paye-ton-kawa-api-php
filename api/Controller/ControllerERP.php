@@ -10,20 +10,23 @@ class ControllerERP
 
     function __construct()
     {
+    }
+
+    private function checkAuthorisation() {
         $apiKey = getallheaders()['secret'] ?? $this->unauthorized();
         if ($apiKey != $this->apiKey) {
             $this->unauthorized();
         }
     }
-
     private function unauthorized(): void
     {
-        header("HTTP/1.1 401 Unauthorized");
-        exit;
+        // header("HTTP/1.1 401 Unauthorized");
+        // exit;
     }
 
     public function getCustomers(): void
     {
+        $this->checkAuthorisation();
         $instanceModelERP = new ModelERP;
         $customers = $instanceModelERP->getCustomers();
         ModelSendResponse::sendResponse($customers);
@@ -31,6 +34,7 @@ class ControllerERP
 
     public function getOrdersByCustomerId(string $customerId): void
     {
+        $this->checkAuthorisation();
         $instanceModelERP = new ModelERP;
         $orders = $instanceModelERP->getOrdersByCustomerId($customerId);
         ModelSendResponse::sendResponse($orders);
@@ -38,6 +42,7 @@ class ControllerERP
 
     public function getProductsByOrderIdByCustomerId(string $customerId, string $orderId): void
     {
+        $this->checkAuthorisation();
         $instanceModelERP = new ModelERP;
         $products = $instanceModelERP->getProductsByOrderIdByCustomerId($customerId, $orderId);
         ModelSendResponse::sendResponse($products);
@@ -45,6 +50,7 @@ class ControllerERP
 
     public function getProducts(): void
     {
+        $this->checkAuthorisation();
         $instanceModelERP = new ModelERP;
         $products = $instanceModelERP->getProducts();
         ModelSendResponse::sendResponse($products);
@@ -52,6 +58,7 @@ class ControllerERP
 
     public function getProductsByIdProduct(string $idProduct): void
     {
+        $this->checkAuthorisation();
         $instanceModelERP = new ModelERP;
         $product = $instanceModelERP->getProductsByIdProduct($idProduct);
         ModelSendResponse::sendResponse($product);
