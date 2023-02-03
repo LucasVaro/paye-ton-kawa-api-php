@@ -15,7 +15,7 @@ class ControllerRouter
     *     description="Serveur local",
     * )
     */
-    public function route()
+    public function route(): void
     {
         $router = new AltoRouter();
         $router->setBasePath('/paye-ton-kawa-api-php/api');

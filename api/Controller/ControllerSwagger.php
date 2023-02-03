@@ -2,7 +2,7 @@
 namespace Api\Controller;
 class ControllerSwagger
 {
-    public function generateDocumentation()
+    public function generateDocumentation(): void
     {
         require("../vendor/autoload.php");
         $openapi = \OpenApi\Generator::scan(['../api']);
