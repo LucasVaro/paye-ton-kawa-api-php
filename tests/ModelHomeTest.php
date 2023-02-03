@@ -1,5 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
+use Api\Model\ModelHome;
 
 final class ModelHomeTest extends TestCase
 {
