@@ -6,7 +6,7 @@ use Api\Model\ModelSendResponse;
 
 class ControllerERP
 {
-    private string $apiKey = "1234";
+    private string $apiKey = API_KEY;
 
     function __construct()
     {
