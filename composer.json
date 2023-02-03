@@ -4,6 +4,11 @@
         "zircote/swagger-php": "^4.6",
         "phpunit/phpunit": "^9"
     },
+    "scripts": {
+        "test": [
+            "phpunit tests"
+        ]
+    },
     "autoload": {
         "files": [
             "api/include.php"
