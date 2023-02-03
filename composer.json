@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "altorouter/altorouter": "1.1.0",
+        "altorouter/altorouter": "2.0.2",
         "zircote/swagger-php": "^4.6",
         "phpunit/phpunit": "^9"
     },
