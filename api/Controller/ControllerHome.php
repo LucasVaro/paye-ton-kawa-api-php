@@ -1,5 +1,8 @@
 <?php
-use OpenApi\Examples\UsingRefs\Model;
+namespace Api\Controller;
+
+use Api\Model\ModelHome;
+use Api\Model\ModelSendResponse;
 Class ControllerHome {
     private ModelHome $modelHome;
     function __construct() {

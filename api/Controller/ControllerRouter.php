@@ -1,4 +1,7 @@
 <?php
+namespace Api\Controller;
+
+use AltoRouter;
 class ControllerRouter
 {
     /**
@@ -18,7 +21,7 @@ class ControllerRouter
         $router->setBasePath('/paye-ton-kawa-api-php/api');
         $router->map('GET', '/', [new ControllerHome, "home"]);
         $router->map('GET', '/generate/documentation', [new ControllerSwagger, "generateDocumentation"]);
-        $router->map('GET', '/documentation/[:page]?', [new ControllerDocumentation, "documentation"]);
+        $router->map('GET', '/documentation', [new ControllerDocumentation, "documentation"]);
         $match = $router->match();
         if (is_array($match) && is_callable($match['target'])) {
             call_user_func_array($match['target'], $match['params']);

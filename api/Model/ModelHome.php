@@ -1,4 +1,5 @@
 <?php
+namespace Api\Model;
 use OpenApi\Annotations as OA;
 /**
  * @OA\Schema(@OA\Xml(name="Home"))

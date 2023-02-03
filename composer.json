@@ -18,8 +18,10 @@
         ]
     },
     "autoload": {
-        "files": [
-            "api/include.php"
-        ]
+        "psr-4": {
+            "Api\\":"api/",
+            "Api\\Controller\\": "api/Controller",
+            "Api\\Model\\":"api/Model"
+        }
     }
 }

@@ -1,4 +1,5 @@
 <?php
+namespace Api\Controller;
 class ControllerSwagger
 {
     public function generateDocumentation()

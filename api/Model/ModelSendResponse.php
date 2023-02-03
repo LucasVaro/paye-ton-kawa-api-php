@@ -1,4 +1,5 @@
-<?php 
+<?php
+namespace Api\Model;
 class ModelSendResponse {
     public static function sendResponse(array $response): void
     {
