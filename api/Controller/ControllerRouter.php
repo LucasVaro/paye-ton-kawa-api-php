@@ -22,6 +22,7 @@ class ControllerRouter
         $router->map('GET', '/', [new ControllerHome, "home"]);
         $router->map('GET', '/generate/documentation', [new ControllerSwagger, "generateDocumentation"]);
         $router->map('GET', '/documentation', [new ControllerDocumentation, "documentation"]);
+        $router->map('GET', '/customers', [new ControllerERP, "getCustomers"]);
         $match = $router->match();
         if (is_array($match) && is_callable($match['target'])) {
             call_user_func_array($match['target'], $match['params']);
