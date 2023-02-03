@@ -16,11 +16,13 @@ class ModelHome {
     }
 
 
-    private function setMessage($message) {
+    private function setMessage(string $message): void
+    {
         $this->message = $message;
     }
 
-    public function getMessage() {
+    public function getMessage(): string
+    {
         return $this->message;
     }
 }
