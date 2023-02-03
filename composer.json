@@ -1,4 +1,12 @@
 {
+    "name": "nathan/paye-ton-kawa-api-php",
+    "description": "api revendeur",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Nathan OLIVE"
+        }
+    ],
     "require": {
         "altorouter/altorouter": "1.1.0",
         "zircote/swagger-php": "^4.6",
