@@ -27,6 +27,7 @@ class ControllerRouter
         $router->map('GET', '/customers/[i:customerId]/orders/[i:orderId]/products', [new ControllerERP, "getProductsByOrderIdByCustomerId"]);
         $router->map('GET', '/products', [new ControllerERP, "getProducts"]);
         $router->map('GET', '/products/[i:idProduct]', [new ControllerERP, "getProductsByIdProduct"]);
+        $router->map('POST', '/getkey', [new ControllerAuthentification, "getKey"]);
         $match = $router->match();
         if (is_array($match) && is_callable($match['target'])) {
             call_user_func_array($match['target'], $match['params']);

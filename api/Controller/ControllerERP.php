@@ -4,6 +4,8 @@ namespace Api\Controller;
 use Api\Model\ModelERP;
 use Api\Model\ModelSendResponse;
 
+use Api\Controller\ControllerAuthentification;
+
 class ControllerERP
 {
     private string $apiKey = API_KEY;
@@ -13,15 +15,15 @@ class ControllerERP
     }
 
     private function checkAuthorisation() {
-        $apiKey = getallheaders()['secret'] ?? $this->unauthorized();
-        if ($apiKey != $this->apiKey) {
+        $apiKey = getallheaders()['jwt'] ?? $this->unauthorized();
+        if (!((new ControllerAuthentification)->checkKey($apiKey))) {
             $this->unauthorized();
         }
     }
     private function unauthorized(): void
     {
-        // header("HTTP/1.1 401 Unauthorized");
-        // exit;
+        header("HTTP/1.1 401 Unauthorized");
+        exit;
     }
 
     public function getCustomers(): void
