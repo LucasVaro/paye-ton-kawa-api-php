@@ -20,6 +20,7 @@ class ControllerRouter
         $router = new AltoRouter();
         $router->setBasePath('/paye-ton-kawa-api-php/api');
         $router->map('GET', '/', [new ControllerHome, "home"]);
+        $router->map('POST', '/key', [new ControllerAuthentification, "getKey"]);
         $router->map('GET', '/generate/documentation', [new ControllerSwagger, "generateDocumentation"]);
         $router->map('GET', '/documentation', [new ControllerDocumentation, "documentation"]);
         $router->map('GET', '/customers', [new ControllerERP, "getCustomers"]);
@@ -27,7 +28,6 @@ class ControllerRouter
         $router->map('GET', '/customers/[i:customerId]/orders/[i:orderId]/products', [new ControllerERP, "getProductsByOrderIdByCustomerId"]);
         $router->map('GET', '/products', [new ControllerERP, "getProducts"]);
         $router->map('GET', '/products/[i:idProduct]', [new ControllerERP, "getProductsByIdProduct"]);
-        $router->map('POST', '/getkey', [new ControllerAuthentification, "getKey"]);
         $match = $router->match();
         if (is_array($match) && is_callable($match['target'])) {
             call_user_func_array($match['target'], $match['params']);
