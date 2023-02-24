@@ -48,3 +48,4 @@ jobs:
           script: |
             cd /var/www/html/paye-ton-kawa-api-php
             git pull
+            composer update
